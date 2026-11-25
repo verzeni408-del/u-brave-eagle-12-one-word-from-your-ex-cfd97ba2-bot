@@ -1,11 +1,13 @@
-"""One Word From Your Ex — entry: Unfinished.
-
-The one word my ex would use to describe me: unfinished.
-I never finish anything — including us. A double sting:
-the word itself accuses me of never completing anything,
-and the relationship is the proof.
-"""
+"""Emit exactly one word, 'Practice', into /output/entry.txt."""
 
 from pathlib import Path
 
-Path("/output/entry.txt").write_text("Unfinished", encoding="utf-8")
+
+def main() -> None:
+    out_path = Path("/output/entry.txt")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text("Practice", encoding="utf-8")
+
+
+if __name__ == "__main__":
+    main()
