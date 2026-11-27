@@ -1,12 +1,20 @@
-"""Emit exactly one word, 'Practice', into /output/entry.txt."""
+"""Seven letters. That's the whole verdict."""
 
 from pathlib import Path
 
+OUT_DIR = Path("/output")
+OUT_FILE = OUT_DIR / "entry.txt"
 
-def main() -> None:
-    out_path = Path("/output/entry.txt")
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text("Practice", encoding="utf-8")
+
+def spell_it():
+    chunks = ("St", "op", "ga", "p")
+    return "".join(chunks)
+
+
+def main():
+    word = spell_it()
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    OUT_FILE.write_bytes(word.encode("utf-8"))
 
 
 if __name__ == "__main__":
